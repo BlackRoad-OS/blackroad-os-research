@@ -16,7 +16,7 @@
     "metadata": {
       "type": "object",
       "additionalProperties": true,
-      "description": "Optional annotations such as risk classification or jurisdiction."}
+      "description": "Optional annotations such as risk classification or jurisdiction. "}
   },
   "required": ["agentId", "createdAt"],
   "additionalProperties": false
