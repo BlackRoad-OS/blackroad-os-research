@@ -5,7 +5,7 @@ blackroad-os-research is the research and theory hub for BlackRoad OS. It contai
 ## Repository Layout
 
 - **/papers**: Conceptual writeups structured like internal papers that capture PS-SHA∞, Spiral Information Geometry (SIG), contradiction handling, finance automation, and related architectures.
-- **/library**: Machine-usable metadata for external PDFs and notes that the system depends on.
+- **/library**: Structured JSON metadata catalogs for reference materials (such as external PDFs and notes) that the system depends on.
 - **/schemas**: JSON Schemas that define core conceptual structures such as PS-SHA∞ journal entries, SIG nodes, agent identity, and journal entry shapes.
 - **/experiments**: Lightweight prototype models and simulations for contradiction handling and SIG visualizations.
 - **/glossary**: Canonical definitions of key concepts and symbols for consistent usage across repos.
