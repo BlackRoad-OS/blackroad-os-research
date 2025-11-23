@@ -4,6 +4,10 @@ blackroad-os-research is the research and theory hub for BlackRoad OS. It contai
 
 ## Repository Layout
 
+- **/sig**: Core Spiral Information Geometry (SIG) documents and spatial mappings for factors, agents, and attractors.
+- **/ps-sha-infinity**: Identity-first specifications for PS-SHA∞, including anchoring rules and hash ladders.
+- **/lucidia**: Architecture notes for the Generation-0 Conscious Agent Kernel and its mesh routing behaviors.
+- **/roadchain**: Ledger theory describing event journaling, block formation, and truth-step aggregation.
 - **/papers**: Conceptual writeups structured like internal papers that capture PS-SHA∞, Spiral Information Geometry (SIG), contradiction handling, finance automation, and related architectures.
 - **/library**: Structured JSON metadata catalogs for reference materials (such as external PDFs and notes) that the system depends on.
 - **/schemas**: JSON Schemas that define core conceptual structures such as PS-SHA∞ journal entries, SIG nodes, agent identity, and journal entry shapes.
