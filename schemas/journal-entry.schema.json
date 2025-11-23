@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://blackroad.systems/schemas/journal-entry.json",
+  "title": "Journal Entry",
+  "description": "General journal entry schema aligned with PS-SHA∞ for agent and system logging.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "actorId": { "type": "string" },
+    "actionType": { "type": "string" },
+    "payload": {},
+    "previousHash": { "type": "string" },
+    "hash": { "type": "string" },
+    "chainId": { "type": "string", "description": "Identifier for the journal chain or worldline." },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional structured metadata including contradiction flags or attestation references."
+    }
+  },
+  "required": ["id", "timestamp", "actorId", "actionType", "payload", "hash"],
+  "additionalProperties": false
+}

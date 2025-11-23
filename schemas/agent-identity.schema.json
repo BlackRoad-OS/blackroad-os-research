@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://blackroad.systems/schemas/agent-identity.json",
+  "title": "Agent Identity",
+  "type": "object",
+  "properties": {
+    "agentId": { "type": "string" },
+    "sigNodeId": { "type": "string", "description": "Reference to a SIG node describing this agent." },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of capability identifiers bound to the agent."
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional annotations such as risk classification or jurisdiction."}
+  },
+  "required": ["agentId", "createdAt"],
+  "additionalProperties": false
+}

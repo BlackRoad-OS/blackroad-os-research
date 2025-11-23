@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://blackroad.systems/schemas/ps-sha-infinity.json",
+  "title": "PS-SHA∞ Journal Entry",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "actorId": { "type": "string" },
+    "actionType": { "type": "string" },
+    "payload": {},
+    "previousHash": { "type": "string" },
+    "hash": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "description": "Optional free-form metadata for chain analysis or attestations.",
+      "additionalProperties": true
+    }
+  },
+  "required": ["id", "timestamp", "actorId", "actionType", "payload", "hash"],
+  "additionalProperties": false
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "finra-annual-reg-oversight-2025",
+    "title": "2025 FINRA Annual Regulatory Oversight Report",
+    "author": "FINRA",
+    "year": 2025,
+    "path": "TODO/pdfs/finra-2025-annual-regulatory-oversight-report.pdf",
+    "tags": ["regulation", "finra", "compliance", "financial-crime"],
+    "summary": "High-level overview of FINRA's supervisory focus areas, including AML, cybersecurity, third-party risk, CAT, best execution, extended hours trading, and more.",
+    "usage": [
+      "Reference for compliance agents in blackroad-os-operator",
+      "Source for regulated-overview docs in blackroad-os-docs"
+    ]
+  },
+  {
+    "id": "cryptology-fundamentals-van-tilborg",
+    "title": "Fundamentals of Cryptology",
+    "author": "Henk C. A. van Tilborg",
+    "year": 2000,
+    "path": "TODO/pdfs/cryptology-fundamentals-van-tilborg.pdf",
+    "tags": ["cryptography", "crypto", "math", "security"],
+    "summary": "Comprehensive overview of classical and modern cryptosystems, including symmetric and public-key schemes, hash functions, MACs, and zero-knowledge proofs.",
+    "usage": [
+      "Reference for PS-SHA∞ and RoadChain crypto primitives",
+      "Foundation for agent identity and journaling guarantees"
+    ]
+  },
+  {
+    "id": "plan-finally-owners-manual",
+    "title": "PLAN? FINALLY? Owner's Manual",
+    "author": "BlackRoad",
+    "year": 2024,
+    "path": "TODO/pdfs/plan-finally-owners-manual.pdf",
+    "tags": ["operations", "meta", "strategy", "identity"],
+    "summary": "Internal owner's manual that encodes governance expectations, journaling norms, and worldview assumptions for agents and operators.",
+    "usage": [
+      "Sets behavioral constraints for agent identity persistence",
+      "Source material for PS-SHA∞ journaling expectations"
+    ]
+  },
+  {
+    "id": "principles-corporate-finance-brealey",
+    "title": "Principles of Corporate Finance",
+    "author": "Richard A. Brealey et al.",
+    "year": 2020,
+    "path": "TODO/pdfs/principles-of-corporate-finance.pdf",
+    "tags": ["finance", "valuation", "capital-markets"],
+    "summary": "Canonical reference on valuation, capital structure, risk management, and capital budgeting frameworks.",
+    "usage": [
+      "Backbone for finance agents' decision rules in blackroad-os-operator",
+      "Context for automated-finance architecture mappings"
+    ]
+  },
+  {
+    "id": "openstax-finance",
+    "title": "OpenStax Principles of Finance",
+    "author": "OpenStax",
+    "year": 2022,
+    "path": "TODO/pdfs/openstax-principles-of-finance.pdf",
+    "tags": ["finance", "education", "risk", "markets"],
+    "summary": "Open textbook covering fundamental finance concepts including time value of money, risk/return, and capital structure.",
+    "usage": [
+      "Baseline definitions for finance terminology in glossary",
+      "Supports regulatory-facing documentation for financial agents"
+    ]
+  },
+  {
+    "id": "industrial-automation-handbook",
+    "title": "Handbook of Industrial Automation",
+    "author": "Springer",
+    "year": 2013,
+    "path": "TODO/pdfs/industrial-automation-handbook.pdf",
+    "tags": ["automation", "systems", "control"],
+    "summary": "Reference for automation architectures, safety constraints, and control patterns applicable to orchestrated agents.",
+    "usage": [
+      "Inform automation patterns for finance orchestrator",
+      "Cross-reference for SIG factor mappings of capabilities"
+    ]
+  },
+  {
+    "id": "marketing-management-models",
+    "title": "Marketing Management Models",
+    "author": "Assorted",
+    "year": 2018,
+    "path": "TODO/pdfs/marketing-management-models.pdf",
+    "tags": ["marketing", "psychology", "models"],
+    "summary": "Survey of marketing and persuasion frameworks relevant to go-to-market agent behaviors and narrative shaping.",
+    "usage": [
+      "Feature library for agent capability scoring and SIG nodes",
+      "Source for contradiction scenarios between revenue and compliance goals"
+    ]
+  }
+]
