@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://blackroad.systems/schemas/sig.json",
+  "title": "Spiral Information Geometry Node",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "label": { "type": "string" },
+    "factors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Prime factors or salient attributes attached to this node."
+    },
+    "weight": {
+      "type": "number",
+      "description": "Optional weight or maturity score for the node."
+    },
+    "children": {
+      "type": "array",
+      "items": { "$ref": "#" },
+      "description": "Nested SIG nodes representing factor decomposition."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Arbitrary annotations such as spiral coordinates or risk flags."
+    }
+  },
+  "required": ["id", "label"],
+  "additionalProperties": false
+}
