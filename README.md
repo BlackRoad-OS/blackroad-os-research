@@ -2,6 +2,8 @@
 
 blackroad-os-research is the research and theory hub for BlackRoad OS. It contains conceptual papers, reference mappings, schemas, and experiments that inform the architecture of agents, journaling, and orchestration.
 
+For a curated map of the documents below, see [index.md](index.md).
+
 ## Repository Layout
 
 - **/sig**: Core Spiral Information Geometry (SIG) documents and spatial mappings for factors, agents, and attractors.
