@@ -1,5 +1,62 @@
+# Node.js
 node_modules/
 .next/
-.DS_Store
 coverage/
+
+# Environment variables & secrets
 .env.local
+.env
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Data files (keep only metadata/samples)
+*.csv
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+!data/samples/*.csv
+!data/examples/*.csv
+
+# Large binaries
+*.bin
+*.weights
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.log
