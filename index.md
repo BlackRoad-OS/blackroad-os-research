@@ -2,6 +2,10 @@
 
 This index collects the core theory, specifications, and experiments that form the research substrate for BlackRoad OS. Use it to navigate foundational SIG geometry, PS-SHA∞ identity mechanics, Lucidia orchestration theory, and supporting audits or simulations.
 
+## Research Engine
+- **Master Prompt**
+  - [Research Engine Master Prompt (V0.1.64)](research/system/prompts/research_master_prompt.md): the 64-Lab Research Intelligence Specification defining the scientific and philosophical engine of the BlackRoad OS civilization.
+
 ## Core Foundations
 - **Spiral Information Geometry**
   - [SIG Overview](sig/sig-overview.md): defines the `(r, θ, τ)` spiral coordinate system, interference patterns, and factor-tree projection.
