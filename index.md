@@ -64,7 +64,7 @@ This index collects the core theory, specifications, and experiments that form t
 ### Agent Architecture 🤖
 - [Trinary Logic in BlackRoad OS](papers/agent-architecture/trinary-logic.md): three-state reasoning and aggregation rules
 - [Contradiction Handling](papers/agent-architecture/contradiction-handling.md): managing disagreement and escalation patterns
-- [PS-SHA Identity Persistence](papers/agent-architecture/ps-sha-identity-persistence.md): identity anchoring patterns
+- [PS-SHA Identity Persistence](papers/agent-architecture/ps-sha-identity-persistence.md): paraconsistent logic schemas and SIG ontology binding
 
 ### Spiral Information Geometry 🌀
 - [SIG Overview (Paper)](papers/spiral-information-geometry/sig-overview.md)
