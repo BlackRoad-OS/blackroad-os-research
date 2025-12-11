@@ -1,27 +1,22 @@
-# blackroad-os-research
+# ⚠️ DEPRECATED - This repository has been archived
 
-blackroad-os-research is the research and theory hub for BlackRoad OS. It contains conceptual papers, reference mappings, schemas, and experiments that inform the architecture of agents, journaling, and orchestration.
+> **This repository is deprecated and read-only.**
+> 
+> All content has been migrated to the canonical BlackRoad OS docs repository.
 
-For a curated map of the documents below, see [index.md](index.md).
+## Migration Target
 
-## Repository Layout
+| Source | Target | PR |
+|--------|--------|-----|
+| `papers/`, `research/` | [blackroad-os-docs](https://github.com/BlackRoad-OS/blackroad-os-docs) | [#57](https://github.com/BlackRoad-OS/blackroad-os-docs/pull/57) |
 
-- **/sig**: Core Spiral Information Geometry (SIG) documents and spatial mappings for factors, agents, and attractors.
-- **/ps-sha-infinity**: Identity-first specifications for PS-SHA∞, including anchoring rules and hash ladders.
-- **/lucidia**: Architecture notes for the Generation-0 Conscious Agent Kernel and its mesh routing behaviors.
-- **/roadchain**: Ledger theory describing event journaling, block formation, and truth-step aggregation.
-- **/papers**: Conceptual writeups structured like internal papers that capture PS-SHA∞, Spiral Information Geometry (SIG), contradiction handling, finance automation, and related architectures.
-- **/library**: Structured JSON metadata catalogs for reference materials (such as external PDFs and notes) that the system depends on.
-- **/schemas**: JSON Schemas that define core conceptual structures such as PS-SHA∞ journal entries, SIG nodes, agent identity, and journal entry shapes.
-- **/experiments**: Lightweight prototype models and simulations for contradiction handling and SIG visualizations.
-- **/glossary**: Canonical definitions of key concepts and symbols for consistent usage across repos.
+## New Location
 
-## How this Repo is Used by Other Repos
+- **Papers**: `blackroad-os-docs/docs/papers/`
+- **Research**: `blackroad-os-docs/docs/research/`
 
-- **blackroad-os-core** uses schemas to shape domain models for journaling, agent identity, and SIG mappings.
-- **blackroad-os-operator** consumes conceptual papers for contradiction handling, PS-SHA∞ semantics, and persistent agent identity guarantees.
-- **blackroad-os-docs** links to these resources for deeper dives and supporting references in public-facing explanations.
+---
 
-## Contributing Notes
+**Do not create new issues or PRs here. Use the canonical repository above.**
 
-This repository prioritizes structured, text-based research artifacts. Experiments should stay lightweight and avoid heavyweight dependencies. Add TODOs where deeper math or formalization is needed.
+🖤 BlackRoad OS Consolidation - Phase 1
