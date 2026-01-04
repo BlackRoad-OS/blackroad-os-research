@@ -427,7 +427,21 @@ export default {
     
     await env.RATE_LIMITS.put(key, String(current + 1), { expirationTtl: 120 });
     
-    return fetch(request);
+    // Forward to backend service to avoid infinite loop
+    const backendUrl = env.BACKEND_URL;
+    if (!backendUrl) {
+      return new Response('Backend URL not configured', { status: 500 });
+    }
+    // Construct a new request to the backend, preserving method, headers, and body
+    const url = new URL(request.url);
+    const targetUrl = backendUrl + url.pathname + url.search;
+    const newRequest = new Request(targetUrl, {
+      method: request.method,
+      headers: request.headers,
+      body: request.body,
+      redirect: request.redirect,
+    });
+    return fetch(newRequest);
   }
 }
 ```
