@@ -178,7 +178,7 @@ This PR syncs the repository with org-wide standards:
 
 Safe to merge after review.`,
                 head: branchName,
-                base: 'main'
+                base: (context.payload.repository && context.payload.repository.default_branch) || 'main'
               });
             } else {
               console.log('✅ Everything already in sync');
