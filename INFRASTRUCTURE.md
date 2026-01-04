@@ -448,16 +448,11 @@ export default {
 
 **4. Billing/Stripe (`blackroad-billing`)**
 
-```javascript
-// Handles all Stripe webhooks and billing logic
-// Consolidate blackroad-stripe-billing, blackroad-stripe-webhooks, blackroad-stripe-checkout
-```
+_Consolidation target: will unify `blackroad-stripe-billing`, `blackroad-stripe-webhooks`, and `blackroad-stripe-checkout` into a single Worker. Implementation details TBD._
 
 **5. Telemetry (`blackroad-telemetry`)**
 
-```javascript
-// Collects and forwards logs/metrics
-```
+_Consolidation target: will collect and forward logs/metrics in a unified Worker. Implementation details TBD._
 
 ### Step 5: KV Cleanup
 
