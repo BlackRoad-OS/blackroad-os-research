@@ -520,12 +520,14 @@ In your Tailscale admin console, set up ACLs:
 ```json
 {
   "acls": [
-    // Allow all devices to talk to each other
-    {"action": "accept", "src": ["*"], "dst": ["*:*"]},
+    // Example: Only allow infra devices to access servers on SSH (22) and HTTP (80, 443)
+    {"action": "accept", "src": ["tag:infra"], "dst": ["tag:server:22", "tag:server:80", "tag:server:443"]},
+    // Add more rules as needed for other services (e.g., databases, LLM nodes)
+    // By default, all other traffic is denied (default deny)
   ],
   "tagOwners": {
     "tag:server": ["autogroup:admin"],
-    "tag:infra": ["autogroup:admin"],
+    "tag:infra": ["autogroup:admin"]
   }
 }
 ```
