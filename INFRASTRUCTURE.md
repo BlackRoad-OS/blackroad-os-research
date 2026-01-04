@@ -681,19 +681,51 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Pi
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: pi5-alpha.tailXXXXX.ts.net
           username: pi
           key: ${{ secrets.PI_SSH_KEY }}
           script: |
+            set -e
             docker pull ghcr.io/${{ github.repository }}:latest
-            docker stop api || true
-            docker rm api || true
+            # Backup current container if running
+            if docker ps -a --format '{{.Names}}' | grep -q '^api$'; then
+              docker commit api api:backup || true
+              docker stop api || true
+              docker rm api || true
+            fi
+            # Start new container
             docker run -d --name api \
               -p 8000:8000 \
               --restart unless-stopped \
               ghcr.io/${{ github.repository }}:latest
+            # Health check (wait up to 20s for service to respond)
+            for i in {1..10}; do
+              if curl -fs http://localhost:8000/ > /dev/null; then
+                echo "Health check passed."
+                break
+              else
+                echo "Waiting for service... ($i/10)"
+                sleep 2
+              fi
+            done
+            # If health check failed, rollback
+            if ! curl -fs http://localhost:8000/ > /dev/null; then
+              echo "Health check failed, rolling back to previous container."
+              docker stop api || true
+              docker rm api || true
+              if docker images | grep -q 'api *backup'; then
+                docker run -d --name api \
+                  -p 8000:8000 \
+                  --restart unless-stopped \
+                  api:backup
+                echo "Rollback complete."
+              else
+                echo "No backup image found. Rollback failed."
+                exit 1
+              fi
+            fi
 ```
 
 ### Alternative: Watchtower (Auto-Update)
