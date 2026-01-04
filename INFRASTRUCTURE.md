@@ -1089,16 +1089,16 @@ Cloudflare Tunnel handles all inbound traffic. Tailscale handles internal mesh. 
 ```python
 # Generate API keys
 import secrets
-import hashlib
+import bcrypt  # pip install bcrypt
 
 def generate_api_key() -> tuple[str, str]:
     """Returns (key_to_give_user, hash_to_store)"""
     key = f"br_{secrets.token_urlsafe(32)}"
-    key_hash = hashlib.sha256(key.encode()).hexdigest()
+    key_hash = bcrypt.hashpw(key.encode(), bcrypt.gensalt()).decode()
     return key, key_hash
 
 def verify_api_key(key: str, stored_hash: str) -> bool:
-    return hashlib.sha256(key.encode()).hexdigest() == stored_hash
+    return bcrypt.checkpw(key.encode(), stored_hash.encode())
 ```
 
 -----
