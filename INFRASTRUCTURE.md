@@ -391,13 +391,39 @@ export default {
     const apiKey = request.headers.get('X-API-Key');
     
     if (!apiKey) {
-      return new Response('Unauthorized', { status: 401 });
+      return new Response(
+        JSON.stringify({
+          error: "Unauthorized",
+          message: "Missing API key. Please provide an API key in the 'X-API-Key' header.",
+          expected_header: "X-API-Key: <your-api-key>",
+          docs: "https://docs.blackroad.io/auth",
+          reason: "missing_api_key",
+          rate_limit_status: "N/A"
+        }),
+        {
+          status: 401,
+          headers: { "Content-Type": "application/json" }
+        }
+      );
     }
     
     // Check API key in KV
     const keyData = await env.API_KEYS.get(apiKey);
     if (!keyData) {
-      return new Response('Invalid API Key', { status: 403 });
+      return new Response(
+        JSON.stringify({
+          error: "Invalid API Key",
+          message: "The provided API key is invalid or not recognized.",
+          expected_header: "X-API-Key: <your-api-key>",
+          docs: "https://docs.blackroad.io/auth",
+          reason: "invalid_api_key",
+          rate_limit_status: "N/A"
+        }),
+        {
+          status: 403,
+          headers: { "Content-Type": "application/json" }
+        }
+      );
     }
     
     // Add user info to request headers and forward
