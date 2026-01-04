@@ -1061,7 +1061,7 @@ def verify_api_key(key: str, stored_hash: str) -> bool:
 
 - **Prometheus**: Metrics collection
 - **Grafana**: Dashboards
-- **Loki**: Log aggregation (or just CloudFlare Logs)
+- **Loki**: Log aggregation (or just Cloudflare Logs)
 
 ### Simple Health Check Endpoint
 
