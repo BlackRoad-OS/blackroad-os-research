@@ -401,9 +401,30 @@ export default {
     }
     
     // Add user info to request headers and forward
-    const newRequest = new Request(request);
-    newRequest.headers.set('X-User-ID', JSON.parse(keyData).userId);
-    
+    const url = new URL(request.url);
+    const hostname = url.hostname;
+    // Backend routing table (should match main gateway)
+    const routes = {
+      'api.blackroad.io': 'https://pi5-alpha.tail<xxxxx>.ts.net:8000',
+      'agents.blackroad.io': 'https://pi5-beta.tailxxxxx.ts.net:8001',
+      'llm.blackroad.io': 'https://jetson-prime.tailxxxxx.ts.net:8080',
+    };
+    const backend = routes[hostname];
+    if (!backend) {
+      return new Response('Not Found', { status: 404 });
+    }
+    // Build backend URL
+    const backendUrl = backend + url.pathname + url.search;
+    // Clone request with new URL and updated headers
+    const newHeaders = new Headers(request.headers);
+    newHeaders.set('X-User-ID', JSON.parse(keyData).userId);
+    const newRequest = new Request(backendUrl, {
+      method: request.method,
+      headers: newHeaders,
+      body: request.body,
+      redirect: request.redirect,
+      // Add other properties as needed (e.g., credentials, mode)
+    });
     return fetch(newRequest);
   }
 }
