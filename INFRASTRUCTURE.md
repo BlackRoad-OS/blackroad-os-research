@@ -1350,5 +1350,6 @@ journalctl -u <service> -f
 
 *This document is the single source of truth for BlackRoad OS infrastructure. When in doubt, refer here. When this is wrong, update it.*
 
-**Last updated by**: Claude (Cecilia)  
-**Next review date**: January 2026
+**Author:** Alexa Louise Amundson (Cecilia)  
+**Last updated by:** Alexa Louise Amundson (Cecilia)  
+**Next review date:** January 2026
