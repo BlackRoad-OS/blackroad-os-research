@@ -1036,7 +1036,8 @@ def generate_api_key() -> tuple[str, str]:
     return key, key_hash
 
 def verify_api_key(key: str, stored_hash: str) -> bool:
-    return hashlib.sha256(key.encode()).hexdigest() == stored_hash
+    # Use constant-time comparison to prevent timing attacks
+    return secrets.compare_digest(hashlib.sha256(key.encode()).hexdigest(), stored_hash)
 ```
 
 -----
