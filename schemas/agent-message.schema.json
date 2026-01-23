@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://blackroad.io/schemas/agent-message.schema.json",
+  "title": "BlackRoad Agent Message Envelope",
+  "description": "Canonical message format for inter-agent communication in the BlackRoad OS",
+  "type": "object",
+  "required": ["id", "ts", "from", "intent", "payload", "prev_truth_state"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "ULID - Universally Unique Lexicographically Sortable Identifier",
+      "pattern": "^[0-9A-HJKMNP-TV-Z]{26}$"
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of message creation"
+    },
+    "from": {
+      "type": "string",
+      "description": "Agent URI (e.g., 'agent://contradiction', 'agent://guardian')",
+      "pattern": "^agent://[a-z0-9-]+$"
+    },
+    "to": {
+      "type": "string",
+      "description": "Target agent URI (optional for broadcast)",
+      "pattern": "^agent://[a-z0-9-]+$"
+    },
+    "intent": {
+      "type": "string",
+      "enum": ["flag", "propose", "commit", "query", "heartbeat", "escalate", "ack"],
+      "description": "Message intent type"
+    },
+    "context_id": {
+      "type": "string",
+      "description": "UUID or branch-id for conversation/task context",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$|^branch-[a-z0-9-]+$"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Intent-specific payload data"
+    },
+    "prev_truth_state": {
+      "type": "string",
+      "description": "PS-SHA∞ hash of sender's truth state before this message",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "emotional": {
+      "type": "object",
+      "description": "Affective state vector for emotional AI dynamics",
+      "properties": {
+        "valence": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Positive/negative affect (-1 to +1)"
+        },
+        "arousal": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Activation level (0 to 1)"
+        },
+        "dominance": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Control/submission (-1 to +1)"
+        },
+        "affect": {
+          "type": "object",
+          "description": "Named affect states with intensities",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "trinary_state": {
+      "type": "integer",
+      "enum": [-1, 0, 1],
+      "description": "Trinary logic state: 1=true, 0=unknown, -1=false/paradox"
+    },
+    "signature": {
+      "type": "string",
+      "description": "Ed25519 signature of message content",
+      "pattern": "^[A-Za-z0-9+/=]+$"
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10,
+      "default": 5,
+      "description": "Message priority (0=lowest, 10=critical)"
+    },
+    "ttl": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Time-to-live in seconds (0=infinite)"
+    }
+  },
+  "examples": [
+    {
+      "id": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+      "ts": "2025-12-06T19:30:00.000Z",
+      "from": "agent://contradiction",
+      "intent": "flag",
+      "context_id": "550e8400-e29b-41d4-a716-446655440000",
+      "payload": {
+        "claim_a": "X is true",
+        "claim_b": "X is false",
+        "source_agents": ["agent://truth", "agent://memory"],
+        "severity": "medium"
+      },
+      "prev_truth_state": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678",
+      "emotional": {
+        "valence": -0.2,
+        "arousal": 0.7,
+        "affect": {
+          "confusion": 0.8,
+          "curiosity": 0.6
+        }
+      },
+      "trinary_state": -1,
+      "signature": "SGVsbG8gV29ybGQ=",
+      "priority": 7
+    }
+  ]
+}
