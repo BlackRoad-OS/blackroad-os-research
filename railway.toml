@@ -3,8 +3,7 @@ builder = "dockerfile"
 
 [deploy]
 numReplicas = 1
-startCommand = "node dist/server.js"
-healthcheckPath = "/health"
+healthcheckPath = "/health.json"
 healthcheckTimeout = 30
 
 [variables]

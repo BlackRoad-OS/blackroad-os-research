@@ -1,25 +1,18 @@
-FROM node:20-alpine
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install pnpm
-RUN corepack enable
-
-# Copy package files
-COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* ./
-
-# Install dependencies
-RUN pnpm install --frozen-lockfile || npm install
+COPY package.json package-lock.json* ./
+RUN npm ci
 
 COPY . .
+RUN npm run build
 
-# Build
-RUN pnpm build || npm run build || echo "No build step"
+FROM nginx:alpine AS runner
 
-ENV NODE_ENV=production
-ENV PORT=8080
-ENV HOST=0.0.0.0
+COPY --from=builder /app/out /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "pnpm start || npm start || node dist/server.js || node index.js"]
+CMD ["nginx", "-g", "daemon off;"]
